@@ -47,6 +47,11 @@ services:
     networks:
       - nginx_network
 
+  redis:
+    image: redis:6.2.6
+    networks:
+      - nginx_network
+
   bot:
     build:
       context: ./telegram_bot
@@ -57,6 +62,33 @@ services:
       - .env
     networks:
       - nginx_network
+
+  celery:
+    build: ./backend
+    command: celery -A config.celery worker --loglevel=info
+    env_file:
+      - .env
+    volumes:
+      - ./backend/:/backend/:rw
+    depends_on:
+      - db
+      - redis
+    networks:
+      - nginx_network
+
+  celery_beat:
+    build: ./backend
+    command: celery -A config.celery beat --loglevel=info
+    env_file:
+      - .env
+    volumes:
+      - ./backend/:/backend/:rw
+    depends_on:
+       - db
+       - redis
+    networks:
+      - nginx_network
+
 
 
 volumes:
