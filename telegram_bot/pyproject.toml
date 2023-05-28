@@ -4,11 +4,14 @@ version = "0.1.0"
 description = ""
 authors = ["Axel791 <HS.Kazakov@mail.ru>"]
 readme = "README.md"
+packages = [{include = "telegram_bot"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-aiogram = "2.25.1"
-pydantic = "1.10.8"
+aiogram = "^2.25.1"
+pydantic = "^1.10.8"
+loguru = "^0.7.0"
+
 
 [build-system]
 requires = ["poetry-core"]

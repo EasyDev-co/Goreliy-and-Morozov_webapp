@@ -1,13 +1,11 @@
 from aiogram import types
 
-from telegram_bot.core.config import settings
+from core.config import settings
 
-web_app_button = types.InlineKeyboardMarkup().add(
-    types.InlineKeyboardButton(
-        text="Open",
-        web_app=settings.WEB_APP_URL
-    )
-)
+
+def get_menu_web_app():
+    web_app = types.WebAppInfo(url=f"{settings.WEB_APP_URL}")
+    return types.MenuButtonWebApp(text="Начать", web_app=web_app)
 
 
 def get_menu_button():

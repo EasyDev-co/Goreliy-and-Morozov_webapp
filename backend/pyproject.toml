@@ -1,20 +1,23 @@
 [tool.poetry]
-name = "backend"
+name = "morozov-backend"
 version = "0.1.0"
 description = ""
 authors = ["Axel791 <HS.Kazakov@mail.ru>"]
-license = "BSD-3"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+drf-spectacular = "^0.26.2"
 django = "^4.2.1"
 djangorestframework = "^3.14.0"
-drf-yasg = "^1.21.5"
-django-filter = "^23.2"
 psycopg2-binary = "^2.9.6"
-python-dotenv = "^1.0.0"
+uwsgi = "^2.0.21"
+django-filter = "^23.2"
 pillow = "^9.5.0"
+python-dotenv = "^1.0.0"
+redis = "^4.5.5"
+celery = "^5.2.7"
+loguru = "^0.7.0"
 
 
 [build-system]
