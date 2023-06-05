@@ -64,7 +64,6 @@ services:
       - nginx_network
 
   celery:
-    build: ./backend
     command: celery -A config.celery worker --loglevel=info
     env_file:
       - .env
@@ -77,7 +76,6 @@ services:
       - nginx_network
 
   celery_beat:
-    build: ./backend
     command: celery -A config.celery beat --loglevel=info
     env_file:
       - .env
